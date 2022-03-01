@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TextEmAll.Api</name>
+    </assembly>
+    <members>
+        <member name="T:TextEmAll.Api.Controllers.ChallengeController">
+            <summary>
+            Challenge Controller
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Controllers.ChallengeController.GetMaxDistance(System.String)">
+            <summary>
+            Gets the Maximum Distance between any two adjacent letters in the input string
+            </summary>
+            <param name="input">The string input</param>
+            <returns>The Max Distance between a pair of letters as an integer value <see cref="T:System.Int32"/></returns>
+            <response code="200">Returns the Max Distance <see cref="T:System.Int32"/> </response>
+            <response code="400">Input was invalid and Max Distance could not be calculated.</response>
+            <response code="500">An Internal Server Error was Encountered.</response>
+        </member>
+        <member name="T:TextEmAll.Api.Controllers.StudentController">
+            <summary>
+            The Student Controller
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Controllers.StudentController.#ctor(TrainerSolutions.Api.General.Repository.Database.SchoolContext,TextEmAll.Repository.Core.IPersonRepository,TextEmAll.Repository.Core.IStudentGradeRepository)">
+            <summary>
+            Constructs a new instance of the StudentController
+            </summary>
+            <param name="context">The School Database Context <see cref="T:TrainerSolutions.Api.General.Repository.Database.SchoolContext"/></param>
+            <param name="personRepository">The Person Repository <see cref="T:TextEmAll.Repository.Core.IPersonRepository"/></param>
+            <param name="studentGradeRepository">The Student Grade Repository <see cref="T:TextEmAll.Repository.Core.IStudentGradeRepository"/></param>
+        </member>
+        <member name="M:TextEmAll.Api.Controllers.StudentController.GetStudentsWithGpaSingleQuery">
+            <summary>
+            This endpoint Gets a list of Students with their GPA using a single LINQ query
+            </summary>
+            <returns>A list of Students and their GPA</returns>
+            <response code="200">Returns a  List of Students and GPA <see cref="T:System.Collections.Generic.List`1"/> </response>
+            <response code="500">An Internal Server Error was Encountered.</response>
+        </member>
+        <member name="M:TextEmAll.Api.Controllers.StudentController.GetStudentsWithGpaByOrchestration">
+            <summary>
+            This endpoint Gets a list of Students with their GPA using calls into multiple repositories and aggregating the data
+            </summary>
+            <returns>A list of Students and their GPA</returns>
+            <response code="200">Returns a List of Students and GPA <see cref="T:System.Collections.Generic.List`1"/> </response>
+            <response code="500">An Internal Server Error was Encountered.</response>
+        </member>
+        <member name="T:TextEmAll.Api.Controllers.StudentResponseModel">
+            <summary>
+            Person Entity Model
+            </summary>
+        </member>
+        <member name="P:TextEmAll.Api.Controllers.StudentResponseModel.StudentId">
+            <summary>
+            Primary Key of Person
+            </summary>
+        </member>
+        <member name="P:TextEmAll.Api.Controllers.StudentResponseModel.FirstName">
+            <summary>
+            Student's First Name
+            </summary>
+        </member>
+        <member name="P:TextEmAll.Api.Controllers.StudentResponseModel.LastName">
+            <summary>
+            Student's Last Name
+            </summary>
+        </member>
+        <member name="P:TextEmAll.Api.Controllers.StudentResponseModel.Gpa">
+            <summary>
+            Student's Grade Point Average (GPA)
+            </summary>
+        </member>
+        <member name="T:TextEmAll.Api.Modules.DbContextModule">
+            <summary>
+            Module for Database Context Setup
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Modules.DbContextModule.RegisterDbContexts(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Register Database Contexts
+            </summary>
+            <param name="builder">The WebApplicationBuilder <see cref="T:Microsoft.AspNetCore.Builder.WebApplicationBuilder"/></param>
+            <returns>The update Web ApplicationBuilder</returns>
+        </member>
+        <member name="T:TextEmAll.Api.Modules.LoggerModule">
+            <summary>
+            Module for Logger Setup
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Modules.LoggerModule.RegisterLoggers(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Register Repository Classes
+            </summary>
+            <param name="builder">The WebApplicationBuilder <see cref="T:Microsoft.AspNetCore.Builder.WebApplicationBuilder"/></param>
+            <returns>The update Web ApplicationBuilder</returns>
+        </member>
+        <member name="T:TextEmAll.Api.Modules.RepositoryModule">
+            <summary>
+            Module for Repository Setup
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Modules.RepositoryModule.RegisterRepositories(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Register Repository Classes
+            </summary>
+            <param name="builder">The WebApplicationBuilder <see cref="T:Microsoft.AspNetCore.Builder.WebApplicationBuilder"/></param>
+            <returns>The update Web ApplicationBuilder</returns>
+        </member>
+        <member name="T:TextEmAll.Api.Modules.SwaggerModule">
+            <summary>
+            Module for Swagger Setup
+            </summary>
+        </member>
+        <member name="M:TextEmAll.Api.Modules.SwaggerModule.RegisterSwagger(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Register Swagger Components
+            </summary>
+            <param name="builder">The WebApplicationBuilder <see cref="T:Microsoft.AspNetCore.Builder.WebApplicationBuilder"/></param>
+            <returns>The update Web ApplicationBuilder</returns>
+        </member>
+    </members>
+</doc>
